@@ -65,6 +65,15 @@ The call above should return the tree below:
 
 const makeTree = (categories, parent) => {
   // your code here
+  const result = {};
+
+  categories
+    .filter(cat => cat.parent === parent)
+    .forEach(cat => {
+      result[cat.id] = makeTree(categories, cat.id);
+    });
+
+  return result;
 };
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/

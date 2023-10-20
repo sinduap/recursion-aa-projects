@@ -23,7 +23,19 @@ sort([]); // []
 
 function sort(nums, sorted = []) {
   // your code here
+  if (!nums.length) return sorted;
+  const smallestNum = Array.from(nums).sort((a, b) => a - b)[0];
+  let smallestIndex = nums.findIndex(val => val === smallestNum);
+
+  return [
+    smallestNum,
+    ...sort([
+      ...nums.slice(0, smallestIndex),
+      ...nums.slice(smallestIndex + 1),
+    ]),
+  ];
 }
+console.log(sort([0, 1, -3]));
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

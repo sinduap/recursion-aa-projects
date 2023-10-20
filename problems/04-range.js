@@ -10,9 +10,11 @@ range(3, 4); // [3]
 range(7, 6); // []
 ***********************************************************************/
 
-
 // your code here
-
+function range(from, to) {
+  if (from >= to) return [];
+  return [from, ...range(from + 1, to)];
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

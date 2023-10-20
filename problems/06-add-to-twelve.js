@@ -13,6 +13,18 @@ addToTwelve([1]); // false
 ***********************************************************************/
 
 // your code here
+function addToTwelve(arr) {
+  if (arr.reduce((a, b) => a + b) < 12) return false;
+
+  let sum = 0;
+
+  for (const [i, el] of arr.entries()) {
+    sum += el;
+
+    if (i !== 0 && sum === 12) return true;
+    if (sum > 12) return addToTwelve(arr.slice(1));
+  }
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
