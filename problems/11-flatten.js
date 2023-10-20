@@ -11,7 +11,14 @@ flatten([1, [2, [3]]]); // [1, 2, 3]
 ***********************************************************************/
 
 // your code here
-  
+function flatten(arr) {
+  return arr.reduce(
+    (acc, curr) =>
+      Array.isArray(curr) ? [...acc, ...flatten(curr)] : [...acc, curr],
+    []
+  );
+}
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = flatten;

@@ -13,6 +13,10 @@ reverse(""); // ""
 ***********************************************************************/
 
 // your code here
+function reverse(str) {
+  if (!str.length) return '';
+  return str[str.length - 1] + reverse(str.slice(0, -1));
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

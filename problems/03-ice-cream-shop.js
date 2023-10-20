@@ -12,9 +12,11 @@ iceCreamShop(['moose tracks'], 'moose tracks'); // true
 iceCreamShop([], 'honey lavender'); // false
 ***********************************************************************/
 
-
 // your code here
-
+function iceCreamShop(flavors, favourite) {
+  if (!flavors.length) return false;
+  return flavors.pop() === favourite || iceCreamShop(flavors, favourite);
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

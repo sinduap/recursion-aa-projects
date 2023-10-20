@@ -10,7 +10,7 @@ exponent(b, 0) // 1
 exponent(b, 1) // b
 exponent(b, n) // exponent(b, n / 2) ** 2             [for even n]
 exponent(b, n) // b * (exponent(b, (n - 1) / 2) ** 2) [for odd n]
-
+2 ** 4 16
 You will need to square the results of exponent(b, n / 2) and
 (exponent(b, (n - 1) / 2).
 
@@ -38,12 +38,21 @@ For each of the examples above, figure out how many times your code should
 be recursively calling `advancedExponent`. Find a way to visually see how many
 times `advancedExponent` is being recursively called.
 ***********************************************************************/
-
+function exponent(b, n) {
+  // your code here
+  if (n === 0) return 1;
+  return n > 0 ? b * exponent(b, n - 1) : exponent(b, n + 1) / b;
+}
 
 function advancedExponent(b, n) {
   // your code here
+  if (n >= 10000) return;
+  if (n === 0) return 1;
+  if (n === 1) return b;
+  return n % 2 === 0
+    ? exponent(b, n / 2) ** 2
+    : b * exponent(b, (n - 1) / 2) ** 2;
 }
-
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
